@@ -16,6 +16,7 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/composition-api": "^0.31.0",
+    "@vue/apollo-composable": "^4.0.0-alpha.16",
     "core-js": "^3.19.3",
     "graphql-tag": "^2.12.6",
     "nuxt": "^2.15.8",
