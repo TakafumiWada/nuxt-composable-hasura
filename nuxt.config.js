@@ -34,7 +34,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/apollo'],
+
+  // apolloの設定
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.GRAPHQL_ENDPOINT,
+        httpLinkOptions: {
+          headers: {
+            'X-Hasura-Admin-Secret': process.env.HASURA_SECRET,
+          },
+        },
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
