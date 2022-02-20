@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",
+    "@graphql-codegen/typescript-operations": "^2.3.2",
+    "@graphql-codegen/typescript-vue-urql": "^2.2.6",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/composition-api": "^0.31.0",
     "@vue/apollo-composable": "^4.0.0-alpha.16",
@@ -32,7 +34,7 @@
     "@babel/eslint-parser": "^7.16.3",
     "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/introspection": "2.1.1",
-    "@graphql-codegen/typescript": "2.4.5",
+    "@graphql-codegen/typescript": "^2.4.5",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^8.0.0",

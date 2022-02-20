@@ -1,8 +1,11 @@
+import gql from 'graphql-tag';
+import * as Urql from '@urql/vue';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -69,4 +72,23 @@ export type QueryAuthorArgs = {
 
 export type QueryBookArgs = {
   id?: InputMaybe<Scalars['Int']>;
+};
+
+export type GetBooksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetBooksQuery = { __typename?: 'Query', books?: Array<{ __typename?: 'Book', id?: number | null, name?: string | null } | null> | null };
+
+
+export const GetBooksDocument = gql`
+    query getBooks {
+  books {
+    id
+    name
+  }
+}
+    `;
+
+export function useGetBooksQuery(options: Omit<Urql.UseQueryArgs<never, GetBooksQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetBooksQuery>({ query: GetBooksDocument, ...options });
 };
