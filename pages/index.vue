@@ -1,20 +1,23 @@
 <template>
-  <Tutorial />
+  <div>
+    <div v-for="book in books" :key="book.id">
+      {{ book.name }}
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import { useQuery, useResult } from '@vue/apollo-composable'
-import { useGetBooksQuery } from '@/generated/graphql'
+import { GetBooksDocument } from '@/generated/graphql'
 
 export default defineComponent({
   name: 'IndexPage',
   setup() {
-    const { result } = useQuery(useGetBooksQuery)
-    console.log(result)
-    const users = useResult(result, [], (data) => data?.users)
+    const { result } = useQuery(GetBooksDocument)
+    const books = useResult(result, [], (data) => data?.books)
 
-    return { users }
+    return { books }
   },
 })
 </script>

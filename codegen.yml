@@ -5,8 +5,8 @@ generates:
   generated/graphql.ts:
     plugins:
       - 'typescript'
-      - typescript-operations
-      - typescript-vue-urql
+      - 'typescript-operations'
+      - 'typed-document-node'
   ./graphql.schema.json:
     plugins:
       - 'introspection'
